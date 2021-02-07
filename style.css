@@ -1,5 +1,5 @@
 .food img{
-    width: 50%;
+    width: 75%;
    
     
 }
@@ -25,7 +25,7 @@
     background-color:rgb(228, 197, 194);
     margin: 50px;
     padding: 50px;
-    width:100%;
+    width:75%;
     text-align: center;
-    
+    border-radius: 10px;
 }
