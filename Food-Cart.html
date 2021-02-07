@@ -9,18 +9,27 @@
     <title>Document</title>
 </head>
 <body>
-  <div class="header">
+  <form class="col-md-6 m-auto py-5">
+    <div class="input-group mb-3">
+        <input id="foodName" type="text" class="form-control" placeholder="Enter a Food Name">
+        <div class="input-group-append">
+            <button id="searchButton"  type="button" class="btn btn-info">Search</button>
+        </div>
+    </div>
+</form>
+  <!-- <div class="header">
     <input id="foodName" type="text" class="form-control" placeholder="Enter a food name">
      <button id="searchButton"  type="button" class="btn btn-danger" >search</button>
-  </div>
+  </div> -->
+  <div class="foodContainer">
   <div id="showDetails">
 
   </div>
-
-  <div id="allFood">
-
   </div>
-
+  <div id="allFood" class="d-flex" >
+   
+  </div>
+  
  
     <script src="Menu.js"></script>
    
