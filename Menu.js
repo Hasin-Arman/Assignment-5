@@ -17,7 +17,7 @@ const displayFood=food=>{
      const foodDiv=document.createElement('div');
      const foodName=`
      <img  onClick="foodDetails('${foodItem.strMeal}')" src="${foodItem.strMealThumb}">
-     <h3  onClick="foodDetails('${foodItem.strMeal}')" >${foodItem.strMeal}</h3>
+     <h2  onClick="foodDetails('${foodItem.strMeal}')" >${foodItem.strMeal}</h2>
      
      `
      foodDiv.className='food'
@@ -42,16 +42,16 @@ const showDetails=details=>{
    
     for (let i = 0; i < details.length; i++) {
         const detailsContainer=document.getElementById('showDetails');
-        const ingradientsList=document.getElementById('ingradients')
+      
         const item = details[i];
         console.log(item);
         const detailsDiv=document.createElement('div');
         const foodDetails=`
          <img src="${item.strMealThumb}">
           <h1>${item.strMeal}</h1>
-            <h4>Ingredients</h4>
+            <h2>Ingredients:</h2>
           `
-    
+    detailsDiv.className='foodDetails'
      detailsDiv.innerHTML=foodDetails;
      const li=document.createElement('li');
      li.innerText=item.strIngredient1;
@@ -76,16 +76,16 @@ const showDetails=details=>{
     
 
 
-    ingradientsList.appendChild(li);
-    ingradientsList.appendChild(li1);
-    ingradientsList.appendChild(li2);
-    ingradientsList.appendChild(li3);
-    ingradientsList.appendChild(li4);
-    ingradientsList.appendChild(li5);
-    ingradientsList.appendChild(li6);
-    ingradientsList.appendChild(li7);
-    ingradientsList.appendChild(li8);
-    ingradientsList.appendChild(li9);
+     detailsDiv.appendChild(li);
+     detailsDiv.appendChild(li1);
+     detailsDiv.appendChild(li2);
+     detailsDiv.appendChild(li3);
+     detailsDiv.appendChild(li4);
+     detailsDiv.appendChild(li5);
+     detailsDiv.appendChild(li6);
+     detailsDiv.appendChild(li7);
+     detailsDiv.appendChild(li8);
+     detailsDiv.appendChild(li9);
     detailsContainer.appendChild(detailsDiv);
         
     }
