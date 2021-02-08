@@ -7,28 +7,33 @@ document.getElementById('searchButton').addEventListener('click',function(){
         
         displayFood(data.meals)
     })
+    .catch(error=>displayError('Sorry!!! The Food You Searched Is Not In Our List. '))
 })
 
 const displayFood=food=>{
     const foodContainer=document.getElementById('allFood');
+    foodContainer.innerHTML='';
     // console.log(food);
- for (let i = 0; i < food.length; i++) {
-     const foodItem = food[i];
-     const foodDiv=document.createElement('div');
-     const foodName=`
-     <img  onClick="foodDetails('${foodItem.strMeal}')" src="${foodItem.strMealThumb}">
-     <h2  onClick="foodDetails('${foodItem.strMeal}')" >${foodItem.strMeal}</h2>
-     
-     `
-     foodDiv.className='food'
-     foodDiv.innerHTML=foodName;
-
+//  for (let i = 0; i < food.length; i++) {
+//      const foodItem = food[i];
+    food.forEach(foodItem => {
+        const foodDiv=document.createElement('div');
+        const foodName=`
+        <img  onClick="foodDetails('${foodItem.strMeal}')" src="${foodItem.strMealThumb}">
+        <h2  onClick="foodDetails('${foodItem.strMeal}')" >${foodItem.strMeal}</h2>
+        
+        `
+        foodDiv.className='food'
+        foodDiv.innerHTML=foodName;
    
-    foodContainer.appendChild(foodDiv);
-  
+      
+       foodContainer.appendChild(foodDiv);
+     
+    });
+   
      
  }
-}
+
 const foodDetails=foodList=>{
     
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${foodList}`)
@@ -39,12 +44,14 @@ const foodDetails=foodList=>{
 }
 
 const showDetails=details=>{
-   
-    for (let i = 0; i < details.length; i++) {
-        const detailsContainer=document.getElementById('showDetails');
+    const detailsContainer=document.getElementById('showDetails');
+    detailsContainer.innerHTML='';
+    // for (let i = 0; i < details.length; i++) {
       
-        const item = details[i];
-        console.log(item);
+      
+    //     const item = details[i];
+    details.forEach(item => {
+       
         const detailsDiv=document.createElement('div');
         const foodDetails=`
          <img src="${item.strMealThumb}">
@@ -88,5 +95,14 @@ const showDetails=details=>{
      detailsDiv.appendChild(li9);
     detailsContainer.appendChild(detailsDiv);
         
-    }
+    });
+  
+    
+}
+
+const displayError=error=>{
+    const errorContainer=document.getElementById('error');
+    const h3=document.createElement('h3');
+    h3.innerText=error;
+    errorContainer.appendChild(h3);
 }

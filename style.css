@@ -34,3 +34,11 @@
 .foodContainer{
     margin-left: 250px;
 }
+#error{
+    color: blue;
+    text-align: center;
+    font-weight: bold;
+}
+.body{
+    background-color: cadetblue;
+}
